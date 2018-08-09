@@ -14,10 +14,7 @@ $password=$_POST["password"];
 var_dump($username);
 var_dump($password);
 $user = $query->selectAllcustomers($username,$password);
-//var_dump($user[0]);
 $user = $user[0];
-//dd($user);
-redirect('/main');
 
 
 if(!empty($user)){
@@ -30,14 +27,14 @@ if(!empty($user)){
         var_dump($_SESSION);
         echo "You are logged in as: <br>";
         echo $_SESSION["login"];
-        echo ":/";
         return redirect('/main');
 
 
     }
     else
     {
-        echo "Złe hasło!";
+        echo "Wrong password!";
+        return redirect('/');
     }
 }
 else
@@ -45,7 +42,8 @@ else
     $_SESSION["login"] = "NULL";
     $_SESSION["isLoggedIn"] = 0;
     var_dump($_SESSION);
-    echo "przyps";
+    echo "No such user";
+    return redirect('/main');
 
 }
 
