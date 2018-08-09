@@ -19,12 +19,12 @@
             <div class="row">
                 <?php
                     $_SESSION['type'] = 'parts';
-                    require '../resources/views/store_pages/showproducts.php';
+                    require '../resources/views/functions/showproducts.php';
                  ?>
             </div>
             <center>
             <?php
-            require '../resources/views/store_pages/cart.php';
+            require '../resources/views/functions/cart.php';
             ?>
             </center>
             <hr>

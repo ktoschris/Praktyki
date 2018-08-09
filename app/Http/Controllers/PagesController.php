@@ -19,7 +19,7 @@ class PagesController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
-            return view('logmein');
+            return view('functions.logmein');
             //require 'logmein.php';
     }
 
@@ -46,17 +46,28 @@ class PagesController extends Controller
 
     public function register()
     {
+        if(isset($_SESSION["isLoggedIn"]) and $_SESSION["isLoggedIn"] > 0) return redirect('/main');
         return view('register');
     }
 
     public function registerme()
     {
-        return view('registerme');
+        $this->validate(request(), [
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirmed-password' => 'required',
+            'name' => 'required',
+            'surname' => 'required',
+            'adress' => 'required',
+            'phone_nr' => 'required'
+        ]);
+        return view('functions.registerme');
     }
 
     public function logout()
     {
-        return view('logout');
+        return view('functions.logout');
     }
 
     public function item()
@@ -66,12 +77,12 @@ class PagesController extends Controller
 
     public function cart()
     {
-        return view('store_pages.showcart');
+        return view('functions.showcart');
     }
 
     public function newcart()
     {
-        return view('store_pages.finalcart');
+        return view('funcions.finalcart');
     }
 
     public function cashout()
@@ -81,7 +92,7 @@ class PagesController extends Controller
 
     public function cashmeout()
     {
-        return view('store_pages.cashmeout');
+        return view('functions.cashmeout');
     }
 
 }

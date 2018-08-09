@@ -14,10 +14,11 @@ $password=$_POST["password"];
 var_dump($username);
 var_dump($password);
 $user = $query->selectAllcustomers($username,$password);
-$user = $user[0];
 
+//dd($user);
 
 if(!empty($user)){
+    $user = $user[0];
 
     if(Hash::check(request($password), $user->password))
     {
@@ -27,6 +28,7 @@ if(!empty($user)){
         var_dump($_SESSION);
         echo "You are logged in as: <br>";
         echo $_SESSION["login"];
+        echo "<br>Header Not Working. <a href='/'>Go Back</a>";
         return redirect('/main');
 
 
@@ -34,6 +36,7 @@ if(!empty($user)){
     else
     {
         echo "Wrong password!";
+        echo "<br>Header Not Working. <a href='/'>Go Back</a>";
         return redirect('/');
     }
 }
@@ -43,6 +46,7 @@ else
     $_SESSION["isLoggedIn"] = 0;
     var_dump($_SESSION);
     echo "No such user";
+    echo "<br>Header Not Working. <a href='/'>Go Back</a>";
     return redirect('/main');
 
 }

@@ -45,7 +45,7 @@
                 echo "    <button class=\"btn btn-secondary\" data-bind=\"click:  function(){post('cashmeout.php',productList);}\">Pay &raquo;</button>";
             }
             else
-                echo "<a class=\"btn btn-secondary\" href=\"/\">Log In to finish payment.</a>";
+                echo ">Log In to finish payment.</a>";
             ?>
 </div>
 <div>

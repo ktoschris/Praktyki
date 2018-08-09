@@ -17,7 +17,7 @@
         <div class="container">
 
             <?php
-            require '../resources/views/store_pages/finalcart.php';
+            require '../resources/views/functions/finalcart.php';
 
 
 

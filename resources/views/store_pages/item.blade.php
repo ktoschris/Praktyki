@@ -20,10 +20,10 @@
             <div class="row">
 
                 <?php
-                require '../resources/views/store_pages/showitem.php';
+                require '../resources/views/functions/showitem.php';
                 ?>
                 <?php
-                require '../resources/views/store_pages/cart.php';
+                require '../resources/views/functions/cart.php';
                 ?>
             </div>
 
